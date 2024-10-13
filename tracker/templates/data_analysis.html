@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Data Analysis</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <h3>Calories Burned</h3>
+            <canvas id="caloriesChart"></canvas>
+        </div>
+        <div class="col-md-5">
+            <h3>Sleep Time</h3>
+            <canvas id="sleepChart"></canvas>
+        </div>
+        <div class="col-md-5">
+            <h3>Heart Rate</h3>
+            <canvas id="heartRateChart"></canvas>
+        </div>
+        <div class="col-md-5">
+            <h3>Weight</h3>
+            <canvas id="weightChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function createChart(ctx, label, data, color) {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map(item => new Date(item.date).toLocaleDateString()),
+                    datasets: [{
+                        label: label,
+                        data: data.map(item => item.value),
+                        borderColor: color,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        var caloriesData = JSON.parse('{{ calories_data|safe }}');
+        var sleepData = JSON.parse('{{ sleep_data|safe }}');
+        var heartRateData = JSON.parse('{{ heart_rate_data|safe }}');
+        var weightData = JSON.parse('{{ weight_data|safe }}');
+
+        createChart(document.getElementById('caloriesChart').getContext('2d'), 'Calories Burned', caloriesData, 'rgb(75, 192, 192)');
+        createChart(document.getElementById('sleepChart').getContext('2d'), 'Sleep Time (hours)', sleepData, 'rgb(153, 102, 255)');
+        createChart(document.getElementById('heartRateChart').getContext('2d'), 'Heart Rate (bpm)', heartRateData, 'rgb(255, 99, 132)');
+        createChart(document.getElementById('weightChart').getContext('2d'), 'Weight (kg)', weightData, 'rgb(255, 159, 132)');
+        
+    </script>
+{% endblock content %}
