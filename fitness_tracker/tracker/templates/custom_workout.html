@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Custom Workouts</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Easy Workouts</h3>
+            <select class="form-control" id="easyWorkouts">
+                <option value="">Select a workout</option>
+                {% for workout in workouts %}
+                    {% if workout.difficulty == 'easy' %}
+                        <option value="{{ workout.id }}">{{ workout.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <div id="easyWorkoutDescription" class="mt-3"></div>
+        </div>
+        <div class="col-md-4">
+            <h3>Medium Workouts</h3>
+            <select class="form-control" id="mediumWorkouts">
+                <option value="">Select a workout</option>
+                
+                {% for workout in workouts %}
+                    {% if workout.difficulty == 'medium' %}
+                        <option value="{{ workout.id }}">{{ workout.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <div id="mediumWorkoutDescription" class="mt-3"></div>
+        </div>
+        <div class="col-md-4">
+            <h3>Hard Workouts</h3>
+            <select class="form-control" id="hardWorkouts">
+                <option value="">Select a workout</option>
+                {% for workout in workouts %}
+                    {% if workout.difficulty == 'hard' %}
+                        <option value="{{ workout.id }}">{{ workout.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <div id="hardWorkoutDescription" class="mt-3"></div>
+        </div>
+    </div>
+
+    <script>
+        const workouts = {{ workouts|safe }};
+
+        function updateWorkoutDescription(selectId, descriptionId) {
+            const select = document.getElementById(selectId);
+            const description = document.getElementById(descriptionId);
+            select.addEventListener('change', function() {
+                const selectedWorkout = workouts.find(w => w.id === parseInt(this.value));
+                if (selectedWorkout) {
+                    description.innerHTML = `<strong>${selectedWorkout.name}</strong><br>${selectedWorkout.description}`;
+                } else {
+                    description.innerHTML = '';
+                }
+            });
+        }
+
+        updateWorkoutDescription('easyWorkouts', 'easyWorkoutDescription');
+        updateWorkoutDescription('mediumWorkouts', 'mediumWorkoutDescription');
+        updateWorkoutDescription('hardWorkouts', 'hardWorkoutDescription');
+    </script>
+{% endblock content %}
