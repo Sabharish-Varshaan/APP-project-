@@ -1,7 +1,508 @@
-body {
-    padding-top: 20px;
+/* Centered Dark Theme Fitness Tracker Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-color: #0e0e0e;
+    color: #fff;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+/* Navigation */
 .navbar {
-    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ff0080 !important;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #ddd !important;
+    transition: color 0.3s ease;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #00d4ff !important;
+}
+
+.btn-logout {
+    background: none;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.btn-logout:hover {
+    color: #00d4ff;
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        margin-top: 1rem;
+    }
+    
+    .nav-link {
+        margin: 5px;
+    }
+}
+/* Main Content */
+main {
+    padding-top: 80px; /* Adjust based on navbar height */
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+/* Hero Section */
+.hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('fitness-bg.jpg') no-repeat center/cover;
+    text-align: center;
+    width: 100%;
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #ff0080;
+    animation: fadeIn 2s ease-in-out;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+    color: #ddd;
+    width: 100%;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    margin-top: 10px;
+}
+
+.cta-buttons a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #ff0080;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cta-buttons a:hover {
+    background-color: #00d4ff;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Features Section */
+.features {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #0e0e0e;
+    width: 100%;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    color: #ff0080;
+    margin-bottom: 40px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.feature {
+    background-color: #151515;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Forms */
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-control {
+    background-color: #151515;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 212, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: #ff0080;
+    border-color: #ff0080;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #00d4ff;
+    border-color: #00d4ff;
+}
+
+/* Content Sections */
+.content-section {
+    background-color: #151515;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.content-section h2 {
+    color: #ff0080;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    background-color: #111;
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    width: 100%;
+}
+
+footer a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Custom Workouts */
+#custom-workouts {
+    padding: 60px 0;
+}
+
+.workout-difficulty {
+    background-color: #151515;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.workout-difficulty h3 {
+    color: #00d4ff;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.workout-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.workout-list li {
+    margin-bottom: 0.5rem;
+}
+
+.form-section {
+    background-color: #151515;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-section h2 {
+    color: #ff0080;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    color: #ddd;
+    margin-bottom: 0.5rem;
+}
+
+.form-section select {
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.workout-plan {
+    background-color: #151515;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.workout-plan h3 {
+    color: #ff0080;
+    margin-bottom: 1rem;
+}
+
+.btn-secondary {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+    background-color: #00d4ff;
+    border-color: #00d4ff;
+}
+
+/* Data Analysis */
+.data-analysis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -1rem;
+}
+
+.chart-column {
+    flex: 1 1 calc(50% - 2rem);
+    margin: 0 1rem;
+}
+
+.chart-container {
+    background-color: #151515;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+    color: #00d4ff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Authentication pages */
+.content-section {
+    background-color: #151515;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.content-section h2 {
+    color: #ff0080;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.content-section form {
+    margin-bottom: 1rem;
+}
+
+.content-section .border-top {
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.content-section .border-top a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+.content-section .border-top a:hover {
+    text-decoration: underline;
+}
+
+/* Crispy forms adjustments */
+.asteriskField {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    color: #ddd;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .data-analysis {
+        flex-direction: column;
+    }
+
+    .chart-column {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .content-section {
+        padding: 2rem;
+    }
 }
