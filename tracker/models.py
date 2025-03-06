@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class ActiveTracking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
-    workout_type = models.CharField(max_length=50)
+    workout_type = models.CharField(max_length=10)
     duration = models.IntegerField()  # in minutes
     calories_burned = models.IntegerField()
     stress_level = models.IntegerField()  # 1-10 scale
