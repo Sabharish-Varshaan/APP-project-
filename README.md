@@ -102,12 +102,17 @@ APP-project--master/
 
 ### Home Page
 ![Home Page](#)
+![image](https://github.com/user-attachments/assets/891f5380-5ead-4a72-b7e4-3471a96ad722)
+
 
 ### Data Analysis
 ![Data Analysis](#)
+![image](https://github.com/user-attachments/assets/cbe0b853-46d8-4a0a-b2aa-647349370add)
 
 ### Custom Workouts
 ![Custom Workouts](#)
+![image](https://github.com/user-attachments/assets/e9542203-188b-4498-bba1-f909f10fa9d1)
+
 
 ## Contributing
 
